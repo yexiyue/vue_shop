@@ -6,7 +6,7 @@
                 <img src="../assets/avater.png" alt="">
             </div>
             <!-- 登录表单区 -->
-            <el-form class="login_form" :model="form" :rules="rules">
+            <el-form class="login_form" :model="form" :rules="rules" ref="loginFormRef">
                 <el-form-item prop="username">
                     <el-input v-model="form.username" prefix-icon="el-icon-user"></el-input>
                 </el-form-item>
@@ -14,8 +14,8 @@
                     <el-input v-model="form.password" prefix-icon="el-icon-lock" type="password"></el-input>
                 </el-form-item>
                 <el-form-item class="btn">
-                    <el-button class="btnitem" type="primary" plain round>登录</el-button>
-                    <el-button class="btnitem" type="info" plain round>重置</el-button>
+                    <el-button class="btnitem" type="primary" @click="login" plain round>登录</el-button>
+                    <el-button class="btnitem" type="info" @click="resetBtn" plain round>重置</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -35,18 +35,34 @@ export default {
             //表单验证规则对象
             rules:{
                 username: [
-            { required: true, message: '用户名不能为空', trigger: 'blur' },
-            { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
-          ],
+                { required: true, message: '用户名不能为空', trigger: 'blur' },
+                { min: 3, max: 10, message: '长度在 3 到 10 个字符', trigger: 'blur' }
+            ],
                 password:[
-                    
+                { required: true, message: '密码不能为空', trigger: 'blur' },
+                { min: 6, max: 15, message: '长度在 6 到 15 个字符', trigger: 'blur' }
                 ]
             }
         }
     },
-    updated() {
-        
-    }
+    methods: {
+        //为重置按钮绑定事件
+        resetBtn(){
+            this.$refs.loginFormRef.resetFields();
+        },
+        //绑定登录按钮预验证
+        login(){
+            this.$refs.loginFormRef.validate( async (valid)=>{
+                if(!valid) return false;
+                //发起请求
+                const {data:result}=await this.$axios.post('login',{...this.form})
+                if(result.meta.status!=200)return this.$message.error(result.meta.msg);
+                this.$message.success(result.meta.msg);
+                sessionStorage.setItem('LoginCredential',result.data.token);
+                this.$router.replace('/home')
+            })
+        }
+    },
 }
 </script>
 
