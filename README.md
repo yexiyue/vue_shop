@@ -33,3 +33,7 @@ vue电商后台管理项目
 
 添加路由守卫
 除了登录其他都需要LoginCredential
+
+退出功能实现
+删除token
+再重定向到'/login'
