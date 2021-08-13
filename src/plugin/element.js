@@ -5,7 +5,28 @@ import {
     Input,
     FormItem,
     Button,
-    Message
+    Message,
+    Container,
+    Aside,
+    Header,
+    Main,
+    Submenu,
+    MenuItem,
+    Menu,
+    Breadcrumb,
+    BreadcrumbItem,
+    Card,
+    Select,
+    Option,
+    Row,
+    Col,
+    Table,
+    TableColumn,
+    Switch,
+    Tooltip,
+    Pagination,
+    Dialog,
+    MessageBox
     } from 'element-ui';
 
 
@@ -13,5 +34,26 @@ Vue.component(Form.name,Form);
 Vue.component(Input.name,Input);
 Vue.component(FormItem.name,FormItem);
 Vue.use(Button);
+Vue.use(Container);
+Vue.use(Aside);
+Vue.use(Main);
+Vue.use(Header);
+Vue.use(Submenu);
+Vue.use(MenuItem);
+Vue.use(Menu);
+Vue.use(Breadcrumb);
+Vue.use(BreadcrumbItem);
+Vue.use(Card);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(Row);
+Vue.use(Col);
+Vue.use(Table);
+Vue.use(TableColumn);
+Vue.use(Switch);
+Vue.use(Tooltip);
+Vue.use(Pagination);
+Vue.use(Dialog);
 //消息弹框
 Vue.prototype.$message=Message;
+Vue.prototype.$confirm=MessageBox.confirm

@@ -6,3 +6,22 @@
 html,body,#app{
     height:100vh;
 }
+
+/* 面包屑样式 */
+.el-breadcrumb{
+    margin-bottom:15px;
+    font-size: 12px;
+}
+/* 卡片样式 */
+.el-card{
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15) !important;
+}
+/* 表格样式 */
+.el-table{
+    margin-top:15px;
+    font-size: 12px;
+}
+/* 分页样式 */
+.el-pagination{
+    margin-top:15px;
+}

@@ -29,8 +29,8 @@ export default {
         return {
             //表单数据
             form:{
-                username:'',
-                password:''
+                username:'admin',
+                password:'123456'
             },
             //表单验证规则对象
             rules:{
@@ -56,6 +56,7 @@ export default {
                 if(!valid) return false;
                 //发起请求
                 const {data:result}=await this.$axios.post('login',{...this.form})
+                const res=await this.$axios.post('login',{...this.form});
                 if(result.meta.status!=200)return this.$message.error(result.meta.msg);
                 this.$message.success(result.meta.msg);
                 sessionStorage.setItem('LoginCredential',result.data.token);

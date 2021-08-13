@@ -12,7 +12,7 @@ vue电商后台管理项目
 
 ## 2.功能实现
 
-## 1登录概述
+### 1登录概述
 
 1.登录业务流程
 
@@ -27,13 +27,28 @@ vue电商后台管理项目
 - 通过 token方式维持状态
 
 1.将登录成功之后的token, 保存到客户端的sessionStorage 中
-1.1项目中出了登录之外的其他API接口，必须在登录之后才能访问
-1.2 token 只应在当前网站打开期间生效，所以将token保存在sessionStorage 中
-2.通过编程式导航跳转到后台主页，路由地址是/home
+2.项目中出了登录之外的其他API接口，必须在登录之后才能访问
+3.token 只应在当前网站打开期间生效，所以将token保存在sessionStorage 中
+4.通过编程式导航跳转到后台主页，路由地址是/home
 
-添加路由守卫
+5.添加路由守卫
 除了登录其他都需要LoginCredential
 
-退出功能实现
+6.退出功能实现
 删除token
 再重定向到'/login'
+
+7.需要授权的 API ，必须在请求头中使用 `Authorization` 字段提供 `token` 令牌
+
+```js
+//添加拦截器
+axios.interceptors.request.use(config=>{
+  config.headers.Authorization=sessionStorage.getItem('LoginCredential');
+  return config
+})
+```
+
+### 2.主页
+
+#### 1.用户列表开发
+

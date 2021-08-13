@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import User from '../components/user/User.vue'
 Vue.use(VueRouter)
 
 const router= new VueRouter({
@@ -9,7 +11,15 @@ const router= new VueRouter({
         //添加重定向
         {path:'/',redirect:'/login'},
         {path:'/login',component:Login},
-        {path:'/home',component:Home}
+        {
+            path:'/home',
+            component:Home,
+            redirect:'/home/welcome',
+            children:[
+                {path:'welcome',component:Welcome},
+                {path:'users',component:User}
+            ]
+        }
     ]
 })
 
@@ -22,7 +32,7 @@ router.beforeEach((to,from,next)=>{
         return next('/login')
     }
     next()
-})
+});
 
 
 export default router
