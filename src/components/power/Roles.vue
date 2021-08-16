@@ -260,9 +260,9 @@ export default {
                 const {data:{data,meta:{msg,status}}}=await this.$axios.delete(`/roles/${role.id}/rights/${rightId}`)
                 if(status!=200)return this.$message.error(msg);
                 //发送请求重新渲染页面会关闭扩展页面
-               /*  this.getRolesData() */
-               //重新为children赋值
-               role.children=data
+                /*  this.getRolesData() */
+                //重新为children赋值
+                role.children=data
                 this.$message.success(msg)
             } catch (error) {
                 return this.$message.info('已取消删除')
