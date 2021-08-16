@@ -278,6 +278,6 @@ export default {
         overflow: auto;
     }
     .el-cascader{
-        width:100%;
+        width:40%;
     }
 </style>

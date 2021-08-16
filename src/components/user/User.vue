@@ -375,7 +375,7 @@ export default {
 }
 </script>
 
-<style lang="less" scope>
+<style lang="less" scoped>
     .box-card {
         width: 100%;
         margin:0 auto;
