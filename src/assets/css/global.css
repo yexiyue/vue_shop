@@ -26,3 +26,14 @@ html,body,#app{
 .el-pagination{
     margin-top:15px;
 }
+/* 步骤条 */
+.el-steps{
+    margin:15px 0 ;
+}
+.el-step__title {
+    font-size: 12px !important;
+}
+/* 富文本编辑器 */
+.ql-editor{
+    min-height: 300px;
+}

@@ -8,9 +8,10 @@ import Rights from '../components/power/Rights'
 import Roles from '../components/power/Roles'
 import Cate from '../components/goods/Cate'
 import Params from '../components/goods/Params'
-import TreeTable from 'vue-table-with-tree-grid'
+import List from '../components/goods/List'
+import AddGoods from '../components/goods/AddGoods'
+
 Vue.use(VueRouter)
-Vue.component('tree-table',TreeTable)
 
 const router= new VueRouter({
     routes:[
@@ -28,6 +29,8 @@ const router= new VueRouter({
                 {path:'roles',component:Roles},
                 {path:'categories',component:Cate},
                 {path:'params',component:Params},
+                {path:'goods',component:List},
+                {path:'addGoods',component:AddGoods},
             ]
         }
     ]
