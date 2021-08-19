@@ -6,6 +6,7 @@
             type="success"
             :closable="false">
         </el-alert>
+        <p><span>——叶师傅</span></p>
     </div>
 </template>
 
@@ -29,5 +30,9 @@ export default {
 </script>
 
 <style lang="less">
-
+    p{
+        font-size: 12px;
+        text-align: center;
+        color: rgb(140, 25, 235);
+    }
 </style>
