@@ -37,3 +37,8 @@ html,body,#app{
 .ql-editor{
     min-height: 300px;
 }
+/* 级联选择器 */
+.cascaderBox{
+    height:300px;
+    overflow: auto;
+}

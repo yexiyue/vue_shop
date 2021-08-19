@@ -37,7 +37,9 @@ import {
     Step,
     CheckboxGroup,
     Checkbox,
-    Upload
+    Upload,
+    Timeline,
+    TimelineItem
     } from 'element-ui';
 //树形table插件
 import TreeTable from 'vue-table-with-tree-grid'
@@ -84,6 +86,8 @@ Vue.use(Step);
 Vue.use(CheckboxGroup);
 Vue.use(Checkbox);
 Vue.use(Upload);
+Vue.use(Timeline);
+Vue.use(TimelineItem);
 //消息弹框
 Vue.prototype.$message=Message;
 Vue.prototype.$confirm=MessageBox.confirm
